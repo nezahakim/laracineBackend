@@ -1,23 +1,22 @@
 import express, { json, urlencoded } from "express";
 import dotenv from 'dotenv';
 import multer from 'multer';
-import { MongoClient } from 'mongodb';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import cors from "cors";
+import { client } from "./models/db.js";
+
 dotenv.config();
 
 const App = express()
 const port = 8000
 
-
 App.use(express.json());
 App.use(cors());
 App.use(urlencoded({ extended: true }));
 
-const connectionString = 'mongodb+srv://mugwanezahakim:L8gjU0qTKdJn2mnt@cluster0.v9agvjt.mongodb.net/';
+// const connectionString = 'mongodb+srv://mugwanezahakim:L8gjU0qTKdJn2mnt@cluster0.v9agvjt.mongodb.net/';
 const dbName = 'laracine';
-const client = new MongoClient(connectionString);
 
 App.get('/', async (req, res) => {
     res.json("Hello, world")

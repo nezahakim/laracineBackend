@@ -1,12 +1,12 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
-const connectionString = 'mongodb+srv://mugwanezahakim:L8gjU0qTKdJn2mnt@cluster0.v9agvjt.mongodb.net/';
-const client = new MongoClient(connectionString);
-
-client.connect(async (err) => {
-  if (err) {
-    console.error('Error connecting to MongoDB:', err);
-    return;
+const uri = "mongodb+srv://mugwanezahakim:L8gjU0qTKdJn2mnt@cluster0.v9agvjt.mongodb.net/?retryWrites=true&w=majority";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API versionexport
+export const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   }
 });
 
