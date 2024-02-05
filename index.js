@@ -20,6 +20,7 @@ const dbName = 'laracine';
 const client = new MongoClient(connectionString);
 
 App.get('/', async (req, res) => {
+    res.json("Hello, world")
     console.log("Welcome")
 });
 
