@@ -1,6 +1,5 @@
 import express, { json, urlencoded } from "express";
 import dotenv from 'dotenv';
-import {Users} from './models/db.js';
 import multer from 'multer';
 import { MongoClient } from 'mongodb';
 import { join, dirname } from 'path';
@@ -21,14 +20,7 @@ const dbName = 'laracine';
 const client = new MongoClient(connectionString);
 
 App.get('/', async (req, res) => {
-    try {
-      const users = await Users.find({}).toArray();
-      console.log(users); // Log the actual data
-      res.json(users);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
+    console.log("Welcome")
 });
 
 App.post('/login', async (req, res) => {
